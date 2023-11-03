@@ -1,10 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "onydAkRPb7SdGm0U65GIJDO27VxzvTrPDIYyastgwjY1mQjo8LJaV64EVj2bE43sEXHqwWVkK6jVP0OlDff5Ew==",
+  "dgSpecHash": "sjsXKNeoNDYcY1mTk0Fj4lMMHcIHTRth6LxCUcRzqOBc8r7ZhE0GZn+NlR5NsjKGltVNoYQq4gQRrz+bCygqeg==",
   "success": true,
   "projectFilePath": "/Users/andrew/RiderProjects/WebApplication5/WebApplication5/WebApplication5.csproj",
   "expectedPackageFiles": [
     "/Users/andrew/.nuget/packages/automapper/12.0.1/automapper.12.0.1.nupkg.sha512",
+    "/Users/andrew/.nuget/packages/automapper.extensions.microsoft.dependencyinjection/12.0.1/automapper.extensions.microsoft.dependencyinjection.12.0.1.nupkg.sha512",
     "/Users/andrew/.nuget/packages/azure.core/1.25.0/azure.core.1.25.0.nupkg.sha512",
     "/Users/andrew/.nuget/packages/azure.identity/1.7.0/azure.identity.1.7.0.nupkg.sha512",
     "/Users/andrew/.nuget/packages/csvhelper/30.0.1/csvhelper.30.0.1.nupkg.sha512",

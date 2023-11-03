@@ -2,10 +2,12 @@ using System.Data.Entity;
 using System.Globalization;
 using CsvHelper;
 using CsvHelper.Configuration;
+using MediatR;
 using Microsoft.AspNetCore.Http.HttpResults;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Migrations.Operations.Builders;
+using WebApplication5.Command.DataBaseCommand;
 using WebApplication5.Context;
 using WebApplication5.DBContext;
 using WebApplication5.Model;
@@ -18,47 +20,17 @@ namespace WebApplication5.Controllers;
 public class DataBaseAction : ControllerBase
 {
     private ShopContext _context;
+    private IMediator _mediator;
 
-    public DataBaseAction(ShopContext context)
+    public DataBaseAction(ShopContext context, IMediator mediator)
     {
         _context = context;
+        _mediator = mediator;
     }
 
     [HttpPost("CreateDataBase")]
-    public async Task<string> CreateTableBuilder()
+    public async Task<string> CreateTableBuilder(CancellationToken cancellationToken)
     {
-        try
-        {
-            using var reader = new StreamReader("/Users/andrew/work/sample-cab-data.csv");
-            using var csv = new CsvReader(reader, new CsvConfiguration(CultureInfo.InvariantCulture));
-            var shops = csv.GetRecords<CsvModel>(); // Mapping to a class that represents CSV columns
-
-            foreach (var userModel in shops)
-            {
-                var data = new Data
-                {
-                    tpep_pickup_datetime = userModel.tpep_pickup_datetime,
-                    tpep_dropoff_datetime = userModel.tpep_dropoff_datetime,
-                    passenger_count = userModel.passenger_count,
-                    trip_distance = userModel.trip_distance,
-                    store_and_fwd_flag = userModel.store_and_fwd_flag,
-                    PULocationID = userModel.PULocationID,
-                    DOLocationID = userModel.DOLocationID,
-                    fare_amount = userModel.fare_amount,
-                    tip_amount = userModel.tip_amount
-                };
-
-                _context.datas.Add(data);
-            }
-
-            _context.SaveChanges();
-
-            return "Okay";
-        }
-        catch (Exception ex)
-        {
-            // Handle and log the exception, and return an appropriate error response.
-            return ex.Message;
-        }
+        return await _mediator.Send(new CreateDataBaseCommand(), cancellationToken);
     }
 }

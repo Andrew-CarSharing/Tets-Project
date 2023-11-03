@@ -1,13 +1,13 @@
 using AutoMapper;
 using WebApplication5.Context;
 
-namespace WebApplication5.Model.Mapping.EntityToModelsMappers;
+namespace WebApplication5.Model.Mapping.ModelsToEntityMappers;
 
-public class DataToModelData: Profile
+public class ModelDataToEntity: Profile
 {
-    public DataToModelData()
+    public ModelDataToEntity()
     {
-        CreateMap<Data, InputDataModel>()
+        CreateMap<InputDataModel,Data>()
             .ForMember(dst => dst.tpep_pickup_datetime, opt => opt.MapFrom(src => src.tpep_pickup_datetime))
             .ForMember(dst => dst.tpep_dropoff_datetime, opt => opt.MapFrom(src => src.tpep_dropoff_datetime))
             .ForMember(dst => dst.passenger_count, opt => opt.MapFrom(src => src.passenger_count))

@@ -86,3 +86,4 @@
 /Users/andrew/RiderProjects/WebApplication5/WebApplication5/bin/Debug/net7.0/AutoMapper.dll
 /Users/andrew/RiderProjects/WebApplication5/WebApplication5/bin/Debug/net7.0/MediatR.dll
 /Users/andrew/RiderProjects/WebApplication5/WebApplication5/bin/Debug/net7.0/MediatR.Contracts.dll
+/Users/andrew/RiderProjects/WebApplication5/WebApplication5/bin/Debug/net7.0/AutoMapper.Extensions.Microsoft.DependencyInjection.dll
